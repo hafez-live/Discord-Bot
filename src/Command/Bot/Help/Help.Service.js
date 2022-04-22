@@ -18,17 +18,17 @@ class HelpService
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId(Interaction.id + '_HELP_MENU')
-                    .setPlaceholder('Hafez Bot help menu')
+                    .setPlaceholder('منو راهنمایی ربات حافظ شیرازی')
                     .addOptions(
                         [
                             {
-                                description: 'Tutorials Info, Users Info, Random Tutorials, Random Users',
-                                label: 'Api',
+                                description: 'غزلیات، گالری تصاویر، زندگی نامه، جستوجو غزلیات حافظ',
+                                label: 'وبسرویس',
                                 value: 'PAGE_HELP_MENU_1'
                             },
                             {
-                                description: 'Bot Services, Invite Bot, Bot Info, Bot Stats, Report, Bot Ping, Bot Help',
-                                label: 'Bot',
+                                description: 'منو راهنمایی، لینک اینوایت، پینگ ربات، اطلاعات ربات',
+                                label: 'سرویس ربات',
                                 value: 'PAGE_HELP_MENU_2'
                             }
                         ])
@@ -37,15 +37,11 @@ class HelpService
         this.helpEmbed = new MessageEmbed()
             .setColor(process.env.EMBED_COLOR)
             .setThumbnail(process.env.FAVICON)
-            .setAuthor(
-                {
-                    name: 'Hafez Bot discord bot help menu'
-                })
             .setDescription(
-                `**Hey There**
+                `**سلام به شما**
 
-                     Welcome to Hafez Bot community
-                     With this menu you can switch between discord bot features to learn how to use this discord bot!
+                     به جامه ربات دیسکورد حافظ شیرازی خوش آمدید
+                     با این منو شما میتوانید تمام ویژگی ها و کابرد های ربات را بررسی کنید
                     `)
             .setFooter(
                 {
@@ -79,18 +75,18 @@ class HelpService
                             .addComponents(
                                 new MessageSelectMenu()
                                     .setCustomId(Interaction.id + '_HELP_MENU')
-                                    .setPlaceholder('Hafez Bot help menu')
+                                    .setPlaceholder('منو راهنمایی ربات حافظ شیرازی')
                                     .addOptions(
                                         [
                                             {
                                                 default: true,
-                                                description: 'Tutorials Info, Users Info, Random Tutorials, Random Users, Search Tutorials, Search Users',
-                                                label: 'Api',
+                                                description: 'غزلیات، گالری تصاویر، زندگی نامه، جستوجو غزلیات حافظ',
+                                                label: 'وبسرویس',
                                                 value: 'PAGE_HELP_MENU_1'
                                             },
                                             {
-                                                description: 'Bot Services, Invite Bot, Bot Info, Bot Stats, Report, Bot Ping, Bot Help',
-                                                label: 'Bot',
+                                                description: 'منو راهنمایی، لینک اینوایت، پینگ ربات، اطلاعات ربات',
+                                                label: 'سرویس ربات',
                                                 value: 'PAGE_HELP_MENU_2'
                                             }
                                         ])
@@ -101,33 +97,24 @@ class HelpService
                             .setThumbnail(process.env.FAVICON)
                             .setAuthor(
                                 {
-                                    name: 'Hafez Bot discord bot service help menu'
+                                    name: 'منو راهنمایی ربات حافظ شیرازی'
                                 })
-                            .setDescription('With these commands you can access all features in our website')
                             .addFields(
                                 {
-                                    name: '**<:DiceIcon:942427447083823145> Random:**',
-                                    value: '``` /random type: <user || tutorial> ```'
+                                    name: '**زندگینامه حافظ:**',
+                                    value: '``` /biography ```'
                                 },
                                 {
-                                    name: '**<:SearchIcon:942427448820236359> Search:**',
+                                    name: '**گالری تصاویر حافظ:**',
+                                    value: '``` /gallery ```'
+                                },
+                                {
+                                    name: '**غزلیات حافظ:**',
+                                    value: '``` /poem number: <poem number> words: <choice option> meaning: <choice option> perception: <choice option> explanation: <choice option> ```'
+                                },
+                                {
+                                    name: '**جستوجو در غزلیات حافظ:**',
                                     value: '``` /search type: <user || tutorial> keyword: <search query> ```'
-                                },
-                                {
-                                    name: '**<:PeopleIcon:940921189436641300> Users:**',
-                                    value: '``` /users sort: <choice options> ```'
-                                },
-                                {
-                                    name: '**<:BookIcon:940923075027939358> Tutorials:**',
-                                    value: '``` /tutorials sort: <choice options> ```'
-                                },
-                                {
-                                    name: '**<:PeopleIcon:940921189436641300> User:**',
-                                    value: "``` /user name: <user's username> ```"
-                                },
-                                {
-                                    name: '**<:BookIcon:940923075027939358> Tutorial:**',
-                                    value: "``` /tutorial name: <tutorial's name> ```"
                                 }
                             )
                             .setFooter(
@@ -147,18 +134,18 @@ class HelpService
                             .addComponents(
                                 new MessageSelectMenu()
                                     .setCustomId(Interaction.id + '_HELP_MENU')
-                                    .setPlaceholder('Hafez Bot discord bot help menu')
+                                    .setPlaceholder('منو راهنمایی ربات حافظ شیرازی')
                                     .addOptions(
                                         [
                                             {
-                                                description: 'Tutorials Info, Users Info, Random Tutorials, Random Users',
-                                                label: 'Api',
+                                                description: 'غزلیات، گالری تصاویر، زندگی نامه، جستوجو غزلیات حافظ',
+                                                label: 'وبسرویس',
                                                 value: 'PAGE_HELP_MENU_1'
                                             },
                                             {
                                                 default: true,
-                                                description: 'Bot Services, Invite Bot, Bot Info, Bot Stats, Report, Bot Ping, Bot Help',
-                                                label: 'Bot',
+                                                description: 'منو راهنمایی، لینک پشتیبانی و اینوایت، پینگ ربات، اطلاعات ربات',
+                                                label: 'سرویس ربات',
                                                 value: 'PAGE_HELP_MENU_2'
                                             }
                                         ])
@@ -169,38 +156,33 @@ class HelpService
                             .setThumbnail(process.env.FAVICON)
                             .setAuthor(
                                 {
-                                    name: 'Hafez Bot discord bot bot help menu'
+                                    name: 'منو راهنمایی ربات حافظ شیرازی'
                                 })
-                            .setDescription('With these commands you can get all information about our bot')
                             .addFields(
                                 {
-                                    name: '**<:DiceIcon:942427447083823145> Help:**',
+                                    name: '**منو راهنمایی:**',
                                     value: '``` /help ```',
                                     inline: true
                                 },
                                 {
-                                    name: '**<:SearchIcon:942427448820236359> Invite:**',
+                                    name: '**لینک اینوایت:**',
                                     value: '``` /invite ```',
                                     inline: true
                                 },
                                 {
-                                    name: '**<:PeopleIcon:940921189436641300> Ping:**',
+                                    name: '**پینگ ربات:**',
                                     value: '``` /ping```',
                                     inline: true
                                 },
                                 {
-                                    name: '**<:PeopleIcon:940921189436641300> Stats:**',
+                                    name: '**اطلاعات ربات:**',
                                     value: '``` /bot-stats ```',
                                     inline: true
                                 },
                                 {
-                                    name: '**<:BookIcon:940923075027939358> Support:**',
+                                    name: '**پشتیبانی ربات:**',
                                     value: '``` /support ```',
                                     inline: true
-                                },
-                                {
-                                    name: '**<:BookIcon:940923075027939358> Report:**',
-                                    value: '``` /report type: <bug || idea> ```'
                                 }
                             )
                             .setFooter(

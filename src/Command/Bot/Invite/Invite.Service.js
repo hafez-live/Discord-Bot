@@ -16,19 +16,19 @@ class InviteService
         this.row = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setLabel('Full Permission')
+                    .setLabel('دسترسی کامل')
                     .setEmoji('<:LinkIcon:939151538792824842>')
                     .setURL(process.env.FULL_PERMISSION_INVITE_LINK)
                     .setStyle('LINK'),
 
                 new MessageButton()
-                    .setLabel('Standard Permission')
+                    .setLabel('دسترسی استاندارد')
                     .setEmoji('<:LinkIcon:939151538792824842>')
                     .setURL(process.env.STANDARD_PERMISSION_INVITE_LINK)
                     .setStyle('LINK'),
 
                 new MessageButton()
-                    .setLabel('Zero Permission')
+                    .setLabel('بدون دسترسی')
                     .setEmoji('<:LinkIcon:939151538792824842>')
                     .setURL(process.env.ZERO_PERMISSION_INVITE_LINK)
                     .setStyle('LINK')
@@ -39,20 +39,20 @@ class InviteService
             .setThumbnail(process.env.FAVICON)
             .setAuthor(
                 {
-                    name: 'Invite Paraffin-Bot with these button or links!'
+                    name: 'لینک اینوایت ربات دیسکورد حافظ شیرازی'
                 })
             .addFields(
                 {
-                    name: 'Full Permission',
-                    value: `[Invite Link](${process.env.FULL_PERMISSION_INVITE_LINK})`
+                    name: 'دسترسی کامل',
+                    value: `[لینک](${process.env.FULL_PERMISSION_INVITE_LINK})`
                 },
                 {
-                    name: 'Standard Permission',
-                    value: `[Invite Link](${process.env.STANDARD_PERMISSION_INVITE_LINK})`
+                    name: 'دسترسی استاندارد',
+                    value: `[لینک](${process.env.STANDARD_PERMISSION_INVITE_LINK})`
                 },
                 {
-                    name: 'Zero Permission',
-                    value: `[Invite Link](${process.env.ZERO_PERMISSION_INVITE_LINK})`
+                    name: 'بدون دسترسی',
+                    value: `[لینک](${process.env.ZERO_PERMISSION_INVITE_LINK})`
                 }
             )
             .setFooter(

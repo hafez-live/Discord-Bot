@@ -17,7 +17,6 @@ class StatsService
         this.row = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setLabel('Refresh')
                     .setCustomId(Interaction.id + '_PAGE_STATS_REFRESH')
                     .setEmoji('<:RepeatIcon:941290998171045928>')
                     .setStyle(process.env.BUTTON_STYLE)
@@ -28,53 +27,43 @@ class StatsService
             .setThumbnail(process.env.FAVICON)
             .setAuthor(
                 {
-                    name: `Hafez Bot discord bot stats`
+                    name: `اطلاعات ربات دیسکورد حافظ شیرازی`
                 })
             .addFields(
                 {
-                    name: '<:RobotIcon:941207018209968168> Client',
+                    name: 'وضعیت ربات',
                     value: '```' + Interaction.client.presence.status + '```',
                     inline: true,
                 },
                 {
-                    name: '<:HddIcon:941209455452884993> Uptime',
+                    name: 'مدت فعال بودن',
                     value: '```' + PrettyMilliseconds(Interaction.client.ws.client.uptime) + '```',
                     inline: true,
                 },
                 {
-                    name: '<:HddIcon:941209455452884993> Servers',
+                    name: 'تعداد سرور ها',
                     value: '```' + Interaction.client.guilds.cache.size + '```',
                     inline: true,
                 },
-                {
-                    name: '<:HourglassIcon:941207017526296606> Ping',
-                    value: '\`\`\`' + Math.round(Interaction.client.ws.ping) + 'ms' + '```',
-                    inline: true,
-                },
-                {
-                    name: '<:HardIcon:941205805800247296> Memory',
-                    value: '```' + (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + 'mb' + '```',
-                    inline: true,
-                }
             )
             .addFields(
                 {
-                    name: '<:Wrench2Icon:941209454286889030> Version',
+                    name: 'نسخه ربات',
                     value: '```' + 'v' + require('../../../../package.json').version + '```',
                     inline: true,
                 },
                 {
-                    name: '<:WrenchIcon:941209455494840370> Discord.js',
+                    name: 'نسخه دیسکورد جی اس',
                     value: '```' + 'v' + version + '```',
                     inline: true,
                 },
                 {
-                    name: '<:GearIcon:941205804399341629> Node',
+                    name: 'نسخه نود',
                     value: '```' + process.version + '```',
                     inline: true,
                 },
                 {
-                    name: '<:CommandIcon:941207017471746079> Commands',
+                    name: 'تعداد کامند ها',
                     value: '```' + Interaction.client.CommandArray.length + '```',
                     inline: true,
                 }

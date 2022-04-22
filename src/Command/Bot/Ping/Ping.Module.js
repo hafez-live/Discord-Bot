@@ -6,7 +6,7 @@ module.exports =
     {
         data: new SlashCommandBuilder()
             .setName('ping')
-            .setDescription('Hafez Bot discord bot & discord websocket ping!'),
+            .setDescription('پینگ ربات و وبسوکت دیسکورد'),
 
         service: new PingService(),
 

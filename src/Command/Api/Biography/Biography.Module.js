@@ -6,7 +6,7 @@ module.exports =
     {
         data: new SlashCommandBuilder()
             .setName('biography')
-            .setDescription('Get Hafez biography!'),
+            .setDescription('زندگی نامه، مشخصات، زمان تولد و فوت حافط'),
 
         defer: true,
 

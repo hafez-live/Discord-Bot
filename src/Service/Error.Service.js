@@ -15,7 +15,7 @@ class ErrorService
         this.row = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setLabel('Help')
+                    .setLabel('راهنمایی')
                     .setCustomId(Interaction.id + 'PAGE_HELP')
                     .setEmoji('<:MotherboardWitheIcon:941210207458058271>')
                     .setStyle(process.env.BUTTON_STYLE)
