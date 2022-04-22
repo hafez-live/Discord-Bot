@@ -16,7 +16,6 @@ class SupportService
         this.row = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setLabel('Join')
                     .setEmoji('<:LinkIcon:939151538792824842>')
                     .setURL(process.env.DISCORD_INVITE_LINK)
                     .setStyle('LINK')
@@ -27,12 +26,12 @@ class SupportService
             .setThumbnail(process.env.FAVICON)
             .setAuthor(
                 {
-                    name: 'Hafez Bot support discord server!'
+                    name: 'سرور پستیبانی ربات دیسکورد حافظ شیرازی'
                 })
             .addFields(
                 {
-                    name: 'Discord Server',
-                    value: `[Link](${process.env.DISCORD_INVITE_LINK})`,
+                    name: 'سرور پشتیبانی',
+                    value: `[لینک](${process.env.DISCORD_INVITE_LINK})`,
                     inline: true,
                 }
             )

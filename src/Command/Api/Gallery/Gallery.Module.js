@@ -6,7 +6,7 @@ module.exports =
     {
         data: new SlashCommandBuilder()
             .setName('gallery')
-            .setDescription('Get some nice Hafez photos!'),
+            .setDescription('گنجینه ای از بهترین و با کیفیت ترین عکس ها از حافظ، حافظیه و دیوان اشعار حافظ'),
 
         defer: true,
 

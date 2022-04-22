@@ -6,7 +6,7 @@ module.exports =
     {
         data: new SlashCommandBuilder()
             .setName('invite')
-            .setDescription('Invite the Bot!'),
+            .setDescription('لینک اینوایت ربات'),
 
         service: new InviteService(),
 

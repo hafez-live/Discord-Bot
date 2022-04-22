@@ -16,7 +16,6 @@ class StatsService
         this.row = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setLabel('Refresh')
                     .setCustomId('PAGE_PING_REFRESH')
                     .setEmoji('<:RepeatIcon:941290998171045928>')
                     .setStyle(process.env.BUTTON_STYLE)
@@ -27,16 +26,16 @@ class StatsService
             .setThumbnail(process.env.FAVICON)
             .setAuthor(
                 {
-                    name: `Hafez Bot discord bot & discord websocket ping`
+                    name: 'پینگ ربات و وبسوکت دیسکورد'
                 })
             .addFields(
                 {
-                    name: '<:RobotIcon:941207018209968168> Bot Client',
+                    name: 'کلاینت ربات',
                     value: '```' + Interaction.client.ws.ping + 'ms' + '```',
                     inline: true,
                 },
                 {
-                    name: '<:HddIcon:941209455452884993> Discord Websocket',
+                    name: 'وبسوکت دیسکورد',
                     value: '```' + (Date.now() - Interaction.createdTimestamp) + 'ms' + '```',
                     inline: true,
                 }

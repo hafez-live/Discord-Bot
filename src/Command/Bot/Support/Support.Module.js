@@ -6,7 +6,7 @@ module.exports =
     {
         data: new SlashCommandBuilder()
             .setName('support')
-            .setDescription('Hafez Bot support discord server!'),
+            .setDescription('سرور پشتیبانی ربات دیسکورد حافظ شیرازی'),
 
         service: new SupportService(),
 

@@ -21,28 +21,28 @@ class BiographyService
                     .setColor(process.env.EMBED_COLOR)
                     .setAuthor(
                         {
-                            name: ':notebook_with_decorative_cover: زندگی نامه حافظ :notebook_with_decorative_cover:'
+                            name: 'زندگی نامه حافظ'
                         })
                     .setDescription(
-                        `: زندگی نامه :notebook_with_decorative_cover:` +
+                        `: زندگی نامه` +
                         `\n` +
                         `> خواجه شمس‌ُالدّینْ محمّدِ بن بهاءُالدّینْ محمّدْ حافظ شیرازی (زادهٔ ۷۲۷ هجری قمری – درگذشتهٔ ۷۹۲ هجری قمری در شیراز)، ملقب به لِسان‌ُالْغِیْب، تَرجُمانُ الْاَسرار، لِسان‌ُالْعُرَفا و ناظِم‌ُالاُولیاء، شاعر سدهٔ هشتم هجری ایران است. بیش‌تر شعرهای او غزل هستند که به غزلیات شهرت دارند.`
                     )
                     .addFields(
                         {
-                            name: ': تولد :notebook_with_decorative_cover:',
+                            name: ': تولد',
                             value: '۷۰۶'
                         },
                         {
-                            name: ': فوت :notebook_with_decorative_cover:',
+                            name: ': فوت',
                             value: '۷۶۹'
                         },
                         {
-                            name: ': دیوان اشعار :notebook_with_decorative_cover:',
+                            name: ': دیوان اشعار',
                             value: 'دیوان حافظ'
                         },
                         {
-                            name: ': محل خاکسپاری :notebook_with_decorative_cover:',
+                            name: ': محل خاکسپاری',
                             value: 'شیراز'
                         })
                     .setImage(process.env.IMAGE_LINK)

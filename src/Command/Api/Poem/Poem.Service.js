@@ -19,7 +19,14 @@ class PoemService
     {
         try
         {
-            this.repository = await this.poemRepository.findRandom();
+            if (this.numberStatus)
+            {
+                this.repository = await this.poemRepository.findOne({ id: Interaction.options.getString('number') });
+            }
+            else
+            {
+                this.repository = await this.poemRepository.findRandom();
+            }
 
             if (this.explanationStatus)
             {
@@ -125,14 +132,34 @@ class PoemService
                 this.poemRow = new MessageActionRow()
                     .addComponents(
                         new MessageButton()
-                            .setCustomId(Interaction.id + '_PAGE_POEM_EXPLANATION')
-                            .setLabel('Explanation')
+                            .setCustomId(Interaction.id + '_PAGE_POEM_WORDS')
+                            .setLabel('کلمات غزل')
                             .setEmoji('<:TutorialIcon:939152819523567636>')
                             .setStyle(process.env.BUTTON_STYLE),
 
                         new MessageButton()
-                            .setCustomId(Interaction.id + '_PAGE_POEM_REFRESH')
-                            .setLabel('Refresh')
+                            .setCustomId(Interaction.id + '_PAGE_POEM_MEANING')
+                            .setLabel('معنی غزل')
+                            .setEmoji('<:TutorialIcon:939152819523567636>')
+                            .setStyle(process.env.BUTTON_STYLE),
+
+                        new MessageButton()
+                            .setCustomId(Interaction.id + '_PAGE_POEM_PERCEPTION')
+                            .setLabel('فال غزل')
+                            .setEmoji('<:TutorialIcon:939152819523567636>')
+                            .setStyle(process.env.BUTTON_STYLE),
+
+                        new MessageButton()
+                            .setCustomId(Interaction.id + '_PAGE_POEM_EXPLANATION')
+                            .setLabel('شرح غزل')
+                            .setEmoji('<:TutorialIcon:939152819523567636>')
+                            .setStyle(process.env.BUTTON_STYLE)
+                    );
+
+                this.poemControllerRow = new MessageActionRow()
+                    .addComponents(
+                        new MessageButton()
+                            .setCustomId(Interaction.id + '_PAGE_POEM_RELOAD')
                             .setEmoji('<:RepeatIcon:941290998171045928>')
                             .setStyle(process.env.BUTTON_STYLE)
                     );
@@ -144,7 +171,7 @@ class PoemService
                             name: this.repository.title || ''
                         })
                     .addField(
-                        ': غزل :notebook_with_decorative_cover:',
+                        ': غزل',
                         this.poemContent || ''
                     )
                     .setImage(process.env.IMAGE_LINK)
@@ -155,10 +182,31 @@ class PoemService
                         })
                     .setTimestamp();
 
+                if (this.wordsStatus)
+                {
+                    this.poemEmbed.addField(
+                        ': معنی کلمات غزل',
+                        this.poemWords || ''
+                    )
+                }
+                if (this.meaningStatus)
+                {
+                    this.poemEmbed.addField(
+                        ': معنی غزل',
+                        this.poemMeaning || ''
+                    )
+                }
+                if (this.perceptionStatus)
+                {
+                    this.poemEmbed.addField(
+                        ': فال غزل',
+                        this.poemPerception || ''
+                    )
+                }
                 if (this.explanationStatus)
                 {
                     this.poemEmbed.addField(
-                        ': شرح غزل :bookmark:',
+                        ': شرح غزل',
                         this.poemExplanation || ''
                     )
                 }
@@ -184,26 +232,157 @@ class PoemService
             {
                 switch (Event.customId)
                 {
+                    case Interaction.id + '_PAGE_POEM_WORDS':
+                    {
+                        this.wordsStatus = true;
+
+                        if (this.wordsStatus)
+                        {
+                            this.wordsStatus = true;
+                            await this.words(Interaction);
+                        }
+                        if (this.meaningStatus)
+                        {
+                            this.meaningStatus = true;
+                            await this.meaning(Interaction);
+                        }
+                        if (this.perceptionStatus)
+                        {
+                            this.perceptionStatus = true;
+                            await this.perception(Interaction);
+                        }
+                        if (this.explanationStatus)
+                        {
+                            this.explanationStatus = true;
+                            await this.explanation(Interaction);
+                        }
+                        await this.content(Interaction);
+                        await this.structure(Interaction);
+
+                        await Event.update({ embeds: [ this.poemEmbed ], components: [ this.poemRow, this.poemControllerRow ] });
+
+                        break;
+                    }
+                    case Interaction.id + '_PAGE_POEM_MEANING':
+                    {
+                        this.meaningStatus = true;
+
+                        if (this.wordsStatus)
+                        {
+                            this.wordsStatus = true;
+                            await this.words(Interaction);
+                        }
+                        if (this.meaningStatus)
+                        {
+                            this.meaningStatus = true;
+                            await this.meaning(Interaction);
+                        }
+                        if (this.perceptionStatus)
+                        {
+                            this.perceptionStatus = true;
+                            await this.perception(Interaction);
+                        }
+                        if (this.explanationStatus)
+                        {
+                            this.explanationStatus = true;
+                            await this.explanation(Interaction);
+                        }
+                        await this.content(Interaction);
+                        await this.structure(Interaction);
+
+                        await Event.update({ embeds: [ this.poemEmbed ], components: [ this.poemRow, this.poemControllerRow ] });
+
+                        break;
+                    }
+                    case Interaction.id + '_PAGE_POEM_PERCEPTION':
+                    {
+                        this.perceptionStatus = true;
+
+                        if (this.wordsStatus)
+                        {
+                            this.wordsStatus = true;
+                            await this.words(Interaction);
+                        }
+                        if (this.meaningStatus)
+                        {
+                            this.meaningStatus = true;
+                            await this.meaning(Interaction);
+                        }
+                        if (this.perceptionStatus)
+                        {
+                            this.perceptionStatus = true;
+                            await this.perception(Interaction);
+                        }
+                        if (this.explanationStatus)
+                        {
+                            this.explanationStatus = true;
+                            await this.explanation(Interaction);
+                        }
+                        await this.content(Interaction);
+                        await this.structure(Interaction);
+
+                        await Event.update({ embeds: [ this.poemEmbed ], components: [ this.poemRow, this.poemControllerRow ] });
+
+                        break;
+                    }
                     case Interaction.id + '_PAGE_POEM_EXPLANATION':
                     {
                         this.explanationStatus = true;
 
-                        await this.data(Interaction);
+                        if (this.wordsStatus)
+                        {
+                            this.wordsStatus = true;
+                            await this.words(Interaction);
+                        }
+                        if (this.meaningStatus)
+                        {
+                            this.meaningStatus = true;
+                            await this.meaning(Interaction);
+                        }
+                        if (this.perceptionStatus)
+                        {
+                            this.perceptionStatus = true;
+                            await this.perception(Interaction);
+                        }
+                        if (this.explanationStatus)
+                        {
+                            this.explanationStatus = true;
+                            await this.explanation(Interaction);
+                        }
                         await this.content(Interaction);
-                        await this.explanation(Interaction);
                         await this.structure(Interaction);
 
-                        await Event.update({ embeds: [ this.poemEmbed ], components: [ this.poemRow ] });
+                        await Event.update({ embeds: [ this.poemEmbed ], components: [ this.poemRow, this.poemControllerRow ] });
 
                         break;
                     }
-                    case Interaction.id + '_PAGE_POEM_REFRESH':
+                    case Interaction.id + '_PAGE_POEM_RELOAD':
                     {
+                        if (this.wordsStatus)
+                        {
+                            this.wordsStatus = true;
+                            await this.words(Interaction);
+                        }
+                        if (this.meaningStatus)
+                        {
+                            this.meaningStatus = true;
+                            await this.meaning(Interaction);
+                        }
+                        if (this.perceptionStatus)
+                        {
+                            this.perceptionStatus = true;
+                            await this.perception(Interaction);
+                        }
+                        if (this.explanationStatus)
+                        {
+                            this.explanationStatus = true;
+                            await this.explanation(Interaction);
+                        }
                         await this.data(Interaction);
                         await this.content(Interaction);
                         await this.structure(Interaction);
 
-                        await Event.update({ embeds: [ this.poemEmbed ], components: [ this.poemRow ] });
+                        await Event.update({ embeds: [ this.poemEmbed ], components: [ this.poemRow, this.poemControllerRow ] });
                     }
                 }
             });
@@ -218,48 +397,51 @@ class PoemService
         }
     }
 
-    async send(Interaction)
+    async send(Interaction, Data)
     {
         try
         {
-            await this.data(Interaction);
+            if (Data)
+            {
+                this.repository = Data;
+            }
+            else
+            {
+                if (Interaction.options.getString('number'))
+                {
+                    this.numberStatus = true;
+                }
+                if (Interaction.options.getString('words') === 'true')
+                {
+                    this.wordsStatus = true;
+                    await this.words(Interaction);
+                }
+                if (Interaction.options.getString('meaning') === 'true')
+                {
+                    this.meaningStatus = true;
+                    await this.meaning(Interaction);
+                }
+                if (Interaction.options.getString('perception') === 'true')
+                {
+                    this.perceptionStatus = true;
+                    await this.perception(Interaction);
+                }
+                if (Interaction.options.getString('explanation') === 'true')
+                {
+                    this.explanationStatus = true;
+                    await this.explanation(Interaction);
+                }
+
+                await this.data(Interaction);
+            }
+
             await this.content(Interaction);
-            if (Interaction.options.getString('number'))
-            {
-                this.explanationStatus = true;
-                await this.explanation(Interaction);
-            }
-            if (Interaction.options.getString('keyword'))
-            {
-                this.explanationStatus = true;
-                await this.explanation(Interaction);
-            }
-            if (Interaction.options.getString('words') === 'باشد')
-            {
-                this.wordsStatus = true;
-                await this.words(Interaction);
-            }
-            if (Interaction.options.getString('meaning') === 'باشد')
-            {
-                this.meaningStatus = true;
-                await this.meaning(Interaction);
-            }
-            if (Interaction.options.getString('perception') === 'باشد')
-            {
-                this.perceptionStatus = true;
-                await this.perception(Interaction);
-            }
-            if (Interaction.options.getString('explanation') === 'باشد')
-            {
-                this.explanationStatus = true;
-                await this.explanation(Interaction);
-            }
             await this.structure(Interaction);
             await this.buttonCollector(Interaction);
 
             if (!this.error)
             {
-                return await Interaction.editReply({ embeds: [ this.poemEmbed ], components: [ this.poemRow ] });
+                return await Interaction.editReply({ embeds: [ this.poemEmbed ], components: [ this.poemRow, this.poemControllerRow ] });
             }
         }
         catch (Error)

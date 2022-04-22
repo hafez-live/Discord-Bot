@@ -6,7 +6,7 @@ module.exports =
     {
         data: new SlashCommandBuilder()
             .setName('help')
-            .setDescription('Hafez Bot help menu!'),
+            .setDescription('منو راهنمایی ربات'),
 
         service: new HelpService(),
 

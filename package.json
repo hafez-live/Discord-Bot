@@ -1,5 +1,5 @@
 {
-    "name": "hafez-bot-v2",
+    "name": "hafez-discord-bot",
     "version": "1.0.0",
     "description": "hafez discord bot",
     "main": "src/main.js",
@@ -16,13 +16,13 @@
     "author": "",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/im-parsa/hafez-bot-v2.git"
+        "url": "git+https://github.com/hafez-shirazi/hafez-discord-bot.git"
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/im-parsa/hafez-bot-v2/issues"
+        "url": "https://github.com/hafez-shirazi/hafez-discord-bot/issues"
     },
-    "homepage": "https://github.com/im-parsa/hafez-bot-v2#readme",
+    "homepage": "https://github.com/hafez-shirazi/hafez-discord-bot#readme",
     "dependencies": {
         "@discordjs/builders": "^0.11.0",
         "@discordjs/rest": "^0.3.0",

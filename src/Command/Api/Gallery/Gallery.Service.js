@@ -13,12 +13,21 @@ class GalleryService
         this.errorService = new ErrorService();
         this.photos =
             [
+                'https://cdn.discordapp.com/attachments/760896469023850588/832576634489929728/782482961-talab-org.jpg',
+                'https://www.packtoiran.com/media/ckeditor/20210114-074634-2046-2.jpg',
+                'https://www.tappersia.com/wp-content/uploads/2019/06/Hafez-PersianPoet.jpg',
+                'https://tappersia.com/wp-content/uploads/2019/06/12806152_1543147449316754_8797338904518522491_n.jpg',
+                'https://upload.wikimedia.org/wikipedia/commons/d/d0/Hafez_Tomb_1.jpg',
+                'https://www.aljazeera.com/wp-content/uploads/2020/06/3ab6dfa691634107b5617e5d85b21f83_18.jpeg?resize=770%2C513',
+                'https://cdna.artstation.com/p/assets/images/images/034/756/404/large/mirzabeygi-52.jpg?1613132478',
+                'https://amuraworld.com/images/articles/134-iran/116-hafez/118-pintura1.jpg',
+                'https://amuraworld.com/images/articles/134-iran/01-full/116-hafez.jpg',
+                'https://learnpersian.us/uploads/2019/10/tomh-of-hafez-shiraz.jpg',
                 'https://cdn.discordapp.com/attachments/760896469023850588/832576633667715112/1.jpg',
                 'https://cdn.discordapp.com/attachments/760896469023850588/832577287551451177/1660401.jpg',
                 'https://cdn.discordapp.com/attachments/760896469023850588/832577287693533194/e67ebce5d3751d45.png',
                 'https://cdn.discordapp.com/attachments/760896469023850588/832576633901678602/b5759593fdad5a8d.jpg',
                 'https://cdn.discordapp.com/attachments/760896469023850588/832576634078625832/ef6cdaaf78ea9696.jpg',
-                'https://cdn.discordapp.com/attachments/760896469023850588/832576634489929728/782482961-talab-org.jpg',
                 'https://cdn.discordapp.com/attachments/760896469023850588/832576634279428136/Hamgardi_0349zvzbc89_resize.jpg'
             ];
     }
@@ -47,9 +56,11 @@ class GalleryService
                     .setColor(process.env.EMBED_COLOR)
                     .setAuthor(
                         {
-                            name:`:notebook_with_decorative_cover: **(${5}/${9}) عکس حافظ** :notebook_with_decorative_cover:`
+                            name:`(${this.currentEmbed}/${this.photos.length}) گالری عکس های حافظ `
                         })
-                    .setImage(this.photos[0])
+                    .setDescription('> گنجینه ای از بهترین و با کیفیت ترین عکس ها از حافظ، حافظیه و دیوان اشعار حافظ')
+                    .setThumbnail('https://cdn.quotesgram.com/img/83/72/565743124-Hafiz_Shirazi_-_Hafez_Shirazi_Biography.jpg')
+                    .setImage(this.photos[this.currentArray])
                     .setFooter(
                         {
                             text: process.env.EMBED_SERVICE_COMMANDS_FOOTER,
