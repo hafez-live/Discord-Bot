@@ -30,12 +30,12 @@ class StatsService
                 })
             .addFields(
                 {
-                    name: 'وبسوکت دیسکورد',
+                    name: 'کلاینت ربات',
                     value: '```' + Interaction.client.ws.ping + 'ms' + '```',
                     inline: true,
                 },
                 {
-                    name: 'کلاینت ربات',
+                    name: 'وبسوکت دیسکورد',
                     value: '```' + (Date.now() - Interaction.createdTimestamp) + 'ms' + '```',
                     inline: true,
                 }
