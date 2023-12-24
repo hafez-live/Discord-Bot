@@ -3,6 +3,15 @@ node_modules
 .idea
 .setting
 
-# Config files
-Config.env
+# misc
+.DS_Store
+*.pem
+.idea
+.vscode
+.vs
 package-lock.json
+.turbo
+
+# local env files
+.env*.local
+Config/Config.env
