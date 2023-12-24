@@ -1,14 +1,14 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const StatsService = require('./Stats.Service');
+const SupportService = require('./Support.Service');
 
 module.exports =
     {
         data: new SlashCommandBuilder()
-            .setName('bot-stats')
-            .setDescription('اطلاعات ربات دیسکورد حافظ شیرازی'),
+            .setName('support')
+            .setDescription('سرور پشتیبانی ربات دیسکورد حافظ لایو'),
 
-        service: new StatsService(),
+        service: new SupportService(),
 
         async execute(Interaction)
         {

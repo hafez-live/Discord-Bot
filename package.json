@@ -2,9 +2,9 @@
     "name": "hafez-discord-bot",
     "version": "1.0.0",
     "description": "hafez discord bot",
-    "main": "src/main.js",
+    "main": "Src/main.js",
     "scripts": {
-        "start": "node src/main.js",
+        "start": "node Src/main.js",
         "dev": "nodemon",
         "lint": "eslint . --ext .js",
         "test": "jest",

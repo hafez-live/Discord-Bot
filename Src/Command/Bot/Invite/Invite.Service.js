@@ -39,7 +39,7 @@ class InviteService
             .setThumbnail(process.env.FAVICON)
             .setAuthor(
                 {
-                    name: 'لینک اینوایت ربات دیسکورد حافظ شیرازی'
+                    name: 'لینک اینوایت ربات دیسکورد حافظ لایو'
                 })
             .addFields(
                 {

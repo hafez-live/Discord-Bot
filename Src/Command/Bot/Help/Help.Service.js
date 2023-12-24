@@ -18,7 +18,7 @@ class HelpService
             .addComponents(
                 new MessageSelectMenu()
                     .setCustomId(Interaction.id + '_HELP_MENU')
-                    .setPlaceholder('منو راهنمایی ربات حافظ شیرازی')
+                    .setPlaceholder('منو راهنمایی ربات حافظ لایو')
                     .addOptions(
                         [
                             {
@@ -40,7 +40,7 @@ class HelpService
             .setDescription(
                 `**سلام به شما**
 
-                     به جامه ربات دیسکورد حافظ شیرازی خوش آمدید
+                     به جامه حافظ لایو خوش آمدید
                      با این منو شما میتوانید تمام ویژگی ها و کابرد های ربات را بررسی کنید
                     `)
             .setFooter(
@@ -75,7 +75,7 @@ class HelpService
                             .addComponents(
                                 new MessageSelectMenu()
                                     .setCustomId(Interaction.id + '_HELP_MENU')
-                                    .setPlaceholder('منو راهنمایی ربات حافظ شیرازی')
+                                    .setPlaceholder('منو راهنمایی ربات حافظ لایو')
                                     .addOptions(
                                         [
                                             {
@@ -97,7 +97,7 @@ class HelpService
                             .setThumbnail(process.env.FAVICON)
                             .setAuthor(
                                 {
-                                    name: 'منو راهنمایی ربات حافظ شیرازی'
+                                    name: 'منو راهنمایی ربات حافظ لایو'
                                 })
                             .addFields(
                                 {
@@ -134,7 +134,7 @@ class HelpService
                             .addComponents(
                                 new MessageSelectMenu()
                                     .setCustomId(Interaction.id + '_HELP_MENU')
-                                    .setPlaceholder('منو راهنمایی ربات حافظ شیرازی')
+                                    .setPlaceholder('منو راهنمایی ربات حافظ لایو')
                                     .addOptions(
                                         [
                                             {
@@ -156,7 +156,7 @@ class HelpService
                             .setThumbnail(process.env.FAVICON)
                             .setAuthor(
                                 {
-                                    name: 'منو راهنمایی ربات حافظ شیرازی'
+                                    name: 'منو راهنمایی ربات حافظ لایو'
                                 })
                             .addFields(
                                 {

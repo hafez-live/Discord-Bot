@@ -1,4 +1,5 @@
-const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
+const PrettyMilliseconds = require("pretty-ms");
+const { MessageEmbed, MessageActionRow, MessageButton, version } = require('discord.js');
 
 const Logger = require('../../../Service/Logger.Service');
 const ErrorService = require('../../../Service/Error.Service');
@@ -16,7 +17,7 @@ class StatsService
         this.row = new MessageActionRow()
             .addComponents(
                 new MessageButton()
-                    .setCustomId('PAGE_PING_REFRESH')
+                    .setCustomId(Interaction.id + '_PAGE_STATS_REFRESH')
                     .setEmoji('<:RepeatIcon:941290998171045928>')
                     .setStyle(process.env.BUTTON_STYLE)
             );
@@ -26,17 +27,44 @@ class StatsService
             .setThumbnail(process.env.FAVICON)
             .setAuthor(
                 {
-                    name: 'پینگ ربات و وبسوکت دیسکورد'
+                    name: `اطلاعات ربات دیسکورد حافظ لایو`
                 })
             .addFields(
                 {
-                    name: 'کلاینت ربات',
-                    value: '```' + Interaction.client.ws.ping + 'ms' + '```',
+                    name: 'وضعیت ربات',
+                    value: '```' + Interaction.client.presence.status + '```',
                     inline: true,
                 },
                 {
-                    name: 'وبسوکت دیسکورد',
-                    value: '```' + (Date.now() - Interaction.createdTimestamp) + 'ms' + '```',
+                    name: 'مدت فعال بودن',
+                    value: '```' + PrettyMilliseconds(Interaction.client.ws.client.uptime) + '```',
+                    inline: true,
+                },
+                {
+                    name: 'تعداد سرور ها',
+                    value: '```' + Interaction.client.guilds.cache.size + '```',
+                    inline: true,
+                },
+            )
+            .addFields(
+                {
+                    name: 'نسخه ربات',
+                    value: '```' + 'v' + require('../../../../package.json').version + '```',
+                    inline: true,
+                },
+                {
+                    name: 'نسخه دیسکورد جی‌اس',
+                    value: '```' + 'v' + version + '```',
+                    inline: true,
+                },
+                {
+                    name: 'نسخه نود جی‌اس',
+                    value: '```' + process.version + '```',
+                    inline: true,
+                },
+                {
+                    name: 'تعداد کامند ها',
+                    value: '```' + Interaction.client.CommandArray.length + '```',
                     inline: true,
                 }
             )
@@ -54,9 +82,9 @@ class StatsService
 
         this.collector.on('collect', async (Event) =>
         {
-            if (Event.customId === 'PAGE_PING_REFRESH')
+            if (Event.customId === (Interaction.id + 'PAGE_STATS_REFRESH'))
             {
-                await this.structure(Interaction);
+               await this.structure(Interaction);
 
                 return await Event.update({ embeds: [ this.embed ], components: [ this.row ] });
             }

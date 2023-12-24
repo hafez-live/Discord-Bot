@@ -26,7 +26,7 @@ class SupportService
             .setThumbnail(process.env.FAVICON)
             .setAuthor(
                 {
-                    name: 'سرور پستیبانی ربات دیسکورد حافظ شیرازی'
+                    name: 'سرور پستیبانی ربات دیسکورد حافظ لایو'
                 })
             .addFields(
                 {
@@ -37,7 +37,7 @@ class SupportService
             )
             .setFooter(
                 {
-                    text: process.env.EMBED_WEB_COMMANDS_FOOTER,
+                    text: process.env.EMBED_BOT_COMMANDS_FOOTER,
                     iconURL: process.env.FAVICON
                 })
             .setTimestamp();
