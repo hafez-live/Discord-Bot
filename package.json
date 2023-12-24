@@ -1,7 +1,12 @@
 {
-    "name": "hafez-discord-bot",
+    "name": "hafez-live-discord-bot",
     "version": "1.0.0",
-    "description": "hafez discord bot",
+    "description": "",
+    "author": {
+        "email": "contact@parsa-firoozi.ir",
+        "name": "im-parsa",
+        "url": "https://parsa-firoozi.ir/"
+    },
     "main": "Src/main.js",
     "scripts": {
         "start": "node Src/main.js",
@@ -13,16 +18,6 @@
         "node-clean": "rm -rf node_modules && rm package-lock.json && npm cache clear --force && npm cache clean --force && npm i",
         "node-update-then-clean": "npm run node-update && npm run node-clean-cache"
     },
-    "author": "",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/hafez-shirazi/hafez-discord-bot.git"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/hafez-shirazi/hafez-discord-bot/issues"
-    },
-    "homepage": "https://github.com/hafez-shirazi/hafez-discord-bot#readme",
     "dependencies": {
         "@discordjs/builders": "^0.11.0",
         "@discordjs/rest": "^0.3.0",
