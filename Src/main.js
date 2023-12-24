@@ -1,7 +1,7 @@
 const Path = require('path');
 const DotEnv = require('dotenv');
 
-DotEnv.config({ path: Path.resolve('config', 'Config.env') });
+DotEnv.config({ path: Path.resolve('Config', 'Config.env') });
 
 const ClientService = require('./Service/Client.Service');
 

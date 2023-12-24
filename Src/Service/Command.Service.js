@@ -17,17 +17,17 @@ module.exports = (Client) =>
 
         for (const CommandsFolder of CommandsFolders)
         {
-            const CommandFolders = fs.readdirSync(path.resolve('src', 'Command', CommandsFolder));
+            const CommandFolders = fs.readdirSync(path.resolve('Src', 'Command', CommandsFolder));
 
             for (const CommandFolder of CommandFolders)
             {
                 const CommandFiles = fs
-                    .readdirSync(path.resolve('src', 'Command', CommandsFolder, CommandFolder))
+                    .readdirSync(path.resolve('Src', 'Command', CommandsFolder, CommandFolder))
                     .filter((File) => File.endsWith('.Module.js'));
 
                 for (const CommandFile of CommandFiles)
                 {
-                    const Command = require(path.resolve('src', 'Command', CommandsFolder, CommandFolder, CommandFile));
+                    const Command = require(path.resolve('Src', 'Command', CommandsFolder, CommandFolder, CommandFile));
 
                     await Client.Commands.set(Command.data.name, Command);
 

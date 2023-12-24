@@ -28,7 +28,7 @@ class ClientService
 
     async eventHandler()
     {
-        const EventsFiles = fs.readdirSync(path.resolve('src', 'Event')).filter((File) => File.endsWith('.Module.js'));
+        const EventsFiles = fs.readdirSync(path.resolve('Src', 'Event')).filter((File) => File.endsWith('.Module.js'));
 
         require(`./Event.Service`)(this.client);
 
@@ -37,7 +37,7 @@ class ClientService
 
     async commandHandler()
     {
-        const CommandsFolders = fs.readdirSync(path.resolve('src', 'Command'));
+        const CommandsFolders = fs.readdirSync(path.resolve('Src', 'Command'));
 
         require(`./Command.Service`)(this.client);
 
